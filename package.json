@@ -1,0 +1,26 @@
+{
+  "name": "react-zero-to-hero",
+  "version": "1.0.0",
+  "description": "This is Nmaste React By Akshay Saini",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AB050/Namste-React.git"
+  },
+  "author": "Abhinay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AB050/Namste-React/issues"
+  },
+  "homepage": "https://github.com/AB050/Namste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
