@@ -1,44 +1,29 @@
-/*
-<div id='parent'> 
-<div id='child1'>
-<h1>I'm an h1tag</h1>
-<h1>I'm an h2tag</h1>
-</div>
-<div id='child2'>
-<h1>I'm an h1tag</h1>
-<h1>I'm an h2tag</h1>
-</div>
-</div>
-*/
 import React from "react";
 import ReactDOM from "react-dom/client";
-const parent = React.createElement(
-  "div",
-  {
-    id: "parent",
-  },
-  [
-    React.createElement("div", { id: "child1" }, [
-      React.createElement("h1", {}, "I am and h1 tag"),
-      React.createElement("h2", {}, "I am and h2 tag"),
-    ]),
-    React.createElement("div", { id: "child2" }, [
-      React.createElement("h1", {}, "I am and h1 tag"),
-      React.createElement("h2", {}, "I am and h2 tag"),
-    ]),
-  ]
-);
+// React Element
+// React.createElement => Object =>HTMLElement(render)
+// const header = Babel transpiles it to React.createElement("h1", { id: "heading" }, "Namste React 🚀");
+// JSX Heading
+// JSX is XML,HTML like syntax
+// console.log(header);
 
-console.log(parent);
-const heading = React.createElement(
-  "h1",
-  {
-    id: "heading",
-    xyz: "abc",
-  },
-  "Namste from React!"
+const Title = () => (
+  <h1 id="heading" className="head" tabIndex="1">
+    Namste React Using JSX 🚀
+  </h1>
 );
-console.log(heading); // object
+// React Component
+// Functional Component -- New
+
+const HeadingComponent = () => (
+  <div id="container">
+    <h1 className="heading">Namaste React Functional Component</h1>
+    <Title />
+  </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+
+root.render(<HeadingComponent />);
+
+// Class Based Component -- OLD
