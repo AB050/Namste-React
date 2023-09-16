@@ -39,3 +39,5 @@ useEffect Hook will be Called on Every Render of the component .
 If the dependency array is empty then it will be render only once
 
 Don't create state variable inside if else and for loop . Always create it in the component .
+
+Demo
