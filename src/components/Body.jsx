@@ -1,24 +1,30 @@
 import RestaurantCard from "./Restaurantcard";
 import { useEffect, useState } from "react";
 import resList from "../Utilis/mockData";
+import { Link } from "react-router-dom";
 
 const Body = () => {
-  // Local State Variable - Super powerful variable
-  const [listOfRestaurants, setListOfRestraunt] = useState(resList);
-
-  const [searchText,setsearchText] = useState();
+  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [searchText, setSearchText] = useState('');
 
   return (
     <div className="body">
       <div className="filter">
         <div className="search">
-          <input type="text" className="search-box" onChange={
-            (e)=>
-            {
-              const searchText = e.target.value;
-            }
-          }/>
-          <button>Search</button>
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button className="search-button" onClick={() => {
+    const filteredList = resList.filter((res) =>
+      res.data.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setListOfRestaurants(filteredList);
+  }}>Search</button>
         </div>
         <button
           className="filter-btn"
@@ -26,7 +32,7 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.data.avgRating > 4
             );
-            setListOfRestraunt(filteredList);
+            setListOfRestaurants(filteredList);
           }}
         >
           Top Rated Restaurants
@@ -34,7 +40,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <Link key={restaurant.data.id} to={"/restaurants/" + restaurant.data.id}><RestaurantCard resData={restaurant} /></Link>
         ))}
       </div>
     </div>
